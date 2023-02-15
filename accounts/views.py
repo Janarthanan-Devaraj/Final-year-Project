@@ -7,6 +7,8 @@ from django.contrib import messages
 
 
 def index(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     user = request.user
     return render(request, "accounts/index.html",{'user': user})
 

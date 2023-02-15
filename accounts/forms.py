@@ -1,11 +1,15 @@
 from django.forms import ModelForm
+from django import forms
 from django.contrib.auth.forms import UserCreationForm
 from .models import User, AcademicsInfo, CompanyInfo
 
 class UserAccountCreationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name','username', 'email', 'age', 'gender', 'password1', 'password2']
+        fields = ['first_name', 'last_name','username', 'email', 'dob', 'gender', 'password1', 'password2']
+        widgets = {
+            'dob':  forms.DateInput(attrs={'type': 'date'})
+        }
 
 class UserAcademicInfoCreationForm(ModelForm):
     class Meta:

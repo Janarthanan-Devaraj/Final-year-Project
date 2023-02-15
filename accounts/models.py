@@ -3,8 +3,9 @@ from django.contrib.auth.models import AbstractUser
 
 
 class User(AbstractUser):
-    gender = models.CharField(max_length=6, blank= True, null=True)
-    age = models.SmallIntegerField(blank=True, null=True)
+    username = models.CharField(max_length=7, unique=True)
+    gender = models.CharField(max_length=10, null=True)
+    dob = models.DateField(null=True)
 
 
 class AcademicsInfo(models.Model):

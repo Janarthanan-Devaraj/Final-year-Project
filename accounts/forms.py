@@ -5,7 +5,7 @@ from .models import User, AcademicsInfo, CompanyInfo
 class UserAccountCreationForm(UserCreationForm):
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'email', 'age', 'gender', 'password1', 'password2']
+        fields = ['first_name', 'last_name','username', 'email', 'age', 'gender', 'password1', 'password2']
 
 class UserAcademicInfoCreationForm(ModelForm):
     class Meta:

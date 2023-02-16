@@ -125,3 +125,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 #User Authentication
 AUTH_USER_MODEL = 'accounts.User'
+
+#static folder
+STATIC_URL = '/static/'
+
+# Add these new lines
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'static'),
+]

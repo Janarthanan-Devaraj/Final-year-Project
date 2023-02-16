@@ -1,13 +1,39 @@
 {% extends 'base/base.html' %}
 
+{% load static %} 
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/accounts/signup.css' %}">
+{% endblock links %}
+
 {% block title %}Signup{% endblock title %}
 
 {% block content %}
-<div>
-    <form method="POST" action="">
+<div class="signup-form">
+    <div class="container">
+      <div class="header text-center">
+        <h1>Sign up</h1>
+        <p>Enter your academic informations</p>
+      </div>
+      {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+      {% endif %}
+      <form method="POST" action="">
         {% csrf_token %}
-        {{form.as_p}}
-        <input type="submit" value="Next" />
-    </form>
+
+        {% for field in form %}
+        <div class="input">
+          <label>{{field.label}}<span class="star">*</span></label>
+          {{field}}
+        <p class="error-text">{{ field.errors|striptags }}</p>
+        </div>
+        {% endfor %}
+        <input class="next-btn" type="submit" value="Next" />
+      </form>
+      </div>
 </div>
 {% endblock content %}

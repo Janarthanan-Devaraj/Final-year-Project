@@ -1,7 +1,112 @@
 {% extends 'base/base.html' %}
 
-{% block title %}Index{% endblock title %}
+{% load static %} 
+{% block links %}
+<link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<link rel="stylesheet" href="{% static 'css/accounts/profile.css' %}">
+
+{% endblock links %}
+
+{% block title %}Profile{% endblock title %}
 
 {% block content %}
-<h1>Hello World!!!</h1>
+<div class="container bootstrap snippets bootdey">
+<div class="row">
+  <div class="profile-nav col-md-3">
+      <div class="panel">
+          <div class="user-heading round">
+              <a href="#">
+                  <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" alt="">
+              </a>
+              <h1>{{user.first_name}}<span> </span>{{user.last_name}}</h1>
+              <p>{{user.username}}</p>
+          </div>
+
+          <ul class="nav nav-pills nav-stacked">
+              <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
+              <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
+              <li><a href="{% url 'logout'%}"> <i class="fa-solid fa-right-from-bracket"></i></i>logout</a></li>
+          </ul>
+      </div>
+  </div>
+  <div class="profile-info col-md-9">
+      <div class="panel">
+          <div class="bio-graph-heading">
+          </div>
+          <div class="panel-body bio-graph-info">
+              <h1>Bio</h1>
+              <div class="row">
+                  <div class="bio-row">
+                      <p><span>First Name </span>: {{user.first_name}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Last Name </span>: {{user.last_name}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Username </span>: {{user.username}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Birthday</span>: {{user.dob}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Gender </span>: {{user.gender}}</p>
+                  </div>
+                  <div class="bio-row">
+                      <p><span>Email </span>: {{user.email}}</p>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="panel">
+        <div class="panel-body bio-graph-info">
+            <h1>Academics</h1>
+            <div class="row">
+                <div class="bio-row">
+                    <p><span>Roll Number </span>: {{academics.roll_number}}</p>
+                </div>
+                <div class="bio-row">
+                    <p><span> </span></p>
+                </div>
+                <div class="bio-row">
+                    <p><span>Degree </span>: {{academics.degree}}</p>
+                </div>
+                <div class="bio-row">
+                    <p><span></span></p>
+                </div>
+                <div class="bio-row">
+                    <p><span>Department </span>: {{academics.department}}</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <div class="panel">
+      <div class="panel-body bio-graph-info">
+          <h1>Company</h1>
+          <div class="row">
+              <div class="bio-row">
+                  <p><span>Company </span>: {{company.company}}</p>
+              </div>
+              <div class="bio-row">
+                  <p><span> </span></p>
+              </div>
+              <div class="bio-row">
+                  <p><span>Designation </span>: {{company.designation}}</p>
+              </div>
+              <div class="bio-row">
+                  <p><span></span></p>
+              </div>
+              <div class="bio-row">
+                  <p><span>Salary </span>: {{company.salary}}</p>
+              </div>
+
+          </div>
+      </div>
+  </div>
+  </div>
+</div>
+</div>
 {% endblock content %}

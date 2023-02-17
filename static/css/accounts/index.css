@@ -1,0 +1,87 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: "Ubuntu", sans-serif;
+    background-color: #ecf0fc;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #120c35;
+  }
+
+  a:hover {
+    text-decoration: none;
+    color: #3e2aae;
+  }
+
+  .card {
+    width: 25rem;
+    background-color: #fff;
+    border-radius: 24px;
+  }
+  
+  .card .container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .container img {
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    border: 10px solid #ecf0fc;
+  }
+  
+  .container h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin: 1rem 0 0.5rem 0;
+  }
+  
+  .container small {
+    color: #120c35;
+    font-size: 18px;
+    font-weight: 300;
+    margin-bottom: 2rem;
+  }
+  
+  .container .bar {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .bar .btn {
+    width: 6rem;
+    cursor: pointer;
+    background-color: #fff;
+    padding: 10px 0;
+    border-radius: 16px;
+    border: 1px solid #c2cdef;
+    color: #120c35;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .btn i {
+    font-size: 20px;
+    margin-bottom: 0.5rem;
+  }
+  

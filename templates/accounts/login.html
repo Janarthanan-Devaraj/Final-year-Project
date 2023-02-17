@@ -12,8 +12,8 @@
 {% block content %}
 <div class="login-form">
     <div class="container">
-      <div class="header">
-        <h1>Login</h1>
+      <div class="header text-center">
+        <h1>Login</h1> 
       </div>
       {% if messages %}
         <ul class="messages">
@@ -25,17 +25,17 @@
       <form method="POST" action="">
         {% csrf_token %}
         <div class="input">
-          <i class="fa-solid fa-user"></i>
+          <label>Username<span class="star">*</span></label>
           <input type="text" name="username" placeholder="Username" />
         </div>
         <div class="input">
-          <i class="fa-solid fa-lock"></i>
+          <label>Password<span class="star">*</span></label>
           <input type="password" name="password" placeholder="Password" />
         </div>
         <input class="login-btn" type="submit" value="Login" />
       </form>
       </div>
-      <p>Don't have an account <a href="{% url 'signup-step1' %}">sign up</a></p>
+      <p class="text-center">Don't have an account <a href="{% url 'signup-step1' %}">sign up</a></p>
     </div> 
 </div>
 

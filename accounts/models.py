@@ -14,9 +14,6 @@ class AcademicsInfo(models.Model):
     roll_number = models.CharField(max_length=7, blank=True, unique=True)
     degree = models.CharField(max_length=100, blank=True)
     department = models.CharField(max_length=100, blank=True)
-    
-    def __str__(self):
-        return self.user 
 
 class CompanyInfo(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
@@ -24,5 +21,3 @@ class CompanyInfo(models.Model):
     designation = models.CharField(max_length=100, blank=True)
     salary = models.FloatField(blank=True)
     
-    def __str__(self):
-        return self.user 

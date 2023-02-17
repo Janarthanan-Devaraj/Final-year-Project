@@ -9,8 +9,16 @@ from django.contrib import messages
 def index(request):
     if not request.user.is_authenticated:
         return redirect('login')
-    user = request.user
-    return render(request, "accounts/index.html",{'user': user})
+    return render(request, "accounts/index.html", {})
+
+def profileView(request, pk):
+
+    user = User.objects.get(username = pk)
+    academics = AcademicsInfo.objects.get(user = user)
+    company = CompanyInfo.objects.get(user = user)
+
+    context = { 'user' : user, 'academics' : academics, 'company' : company }
+    return render(request, "accounts/profile.html", context)
 
 def loginPage(request):
 

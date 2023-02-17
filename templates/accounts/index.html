@@ -1,7 +1,25 @@
 {% extends 'base/base.html' %}
 
+{% load static %} 
+
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/accounts/index.css' %}">
+{% endblock links %}
+
 {% block title %}Index{% endblock title %}
 
 {% block content %}
-<h1>Hello {{user.username}}!!!</h1>
+<div class="card">
+    <div class="container">
+      <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" alt="profile-img">
+      <h2>{{user.username}}</h2>
+      <small>{{user.first_name}}</small>
+      <div class="bar">
+        <button class="btn">
+          <i class="fas fa-pen"></i>
+          <a href="{% url 'profile' request.user.username %}">View profile</a>
+        </button>
+      </div>
+    </div>
+  </div>
 {% endblock content %}

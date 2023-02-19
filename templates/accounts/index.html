@@ -15,10 +15,10 @@
       <h2>{{user.username}}</h2>
       <small>{{user.first_name}}</small>
       <div class="bar">
-        <button class="btn">
+        <a class="btn" href="{% url 'profile' request.user.username %}">
           <i class="fas fa-pen"></i>
-          <a href="{% url 'profile' request.user.username %}">View profile</a>
-        </button>
+          <p>View profile</p>
+        </a>
       </div>
     </div>
   </div>

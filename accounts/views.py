@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponse
 from django.contrib.auth import authenticate, login, logout
 from .models import User, CompanyInfo, AcademicsInfo
-from .forms import UserAccountCreationForm, UserAcademicInfoCreationForm, UserCompanyInfoCreationForm
+from django.contrib.auth.decorators import login_required
+from .forms import UserAccountCreationForm, UserAcademicInfoCreationForm, UserCompanyInfoCreationForm, EditUserAccount
 from django.contrib import messages
 
 
@@ -99,4 +100,35 @@ def signupPage3(request):
     
     context = {'form' : form}
     return render(request, 'accounts/signup_step3.html', context)
+
+@login_required(login_url = 'login')
+def editProfile(request):
+    user = request.user
+    academics = AcademicsInfo.objects.get(user = user)
+    company = CompanyInfo.objects.get(user = user)
+    form1 = EditUserAccount(instance = user)
+    form2 = UserAcademicInfoCreationForm(instance = academics)
+    form3 = UserCompanyInfoCreationForm(instance = company)
+
+    if request.method == 'POST':
+        form1 = EditUserAccount(request.POST, request.FILES, instance = user)
+        form2 = UserAcademicInfoCreationForm(request.POST, request.FILES, instance = academics)
+        form3 = UserCompanyInfoCreationForm(request.POST, request.FILES, instance = company)
+        if form1.is_valid() and form2.is_valid() and form3.is_valid():
+            form_userInfo = form1.save(commit=False)
+            form_userInfo.user = request.user
+            form_userInfo.save()
+            form_academicInfo = form2.save(commit=False)
+            form_academicInfo.user = request.user
+            form_academicInfo.save()
+            form_companyInfo = form3.save(commit=False)
+            form_companyInfo.user = request.user
+            form_companyInfo.save()
+            
+
+            return redirect('profile', pk = user.username)
+    
+    context = {'form1': form1, 'form2': form2, 'form3' : form3 }
+    return render(request, 'accounts/edit-profile.html', context)
+
 

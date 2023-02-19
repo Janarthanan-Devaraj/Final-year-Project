@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+
 * {
     margin: 0;
     padding: 0;
@@ -5,7 +7,7 @@
   }
   
   body {
-    font-family: "Ubuntu", sans-serif;
+    font-family: "Poppins", sans-serif;
     background-color: #ecf0fc;
     height: 100vh;
     display: flex;
@@ -13,15 +15,16 @@
     justify-content: center;
   }
   
-  a {
+  /* a {
     text-decoration: none;
     color: #120c35;
+    border: 1px solid #3e2aae;
   }
 
   a:hover {
     text-decoration: none;
     color: #3e2aae;
-  }
+  } */
 
   .card {
     width: 25rem;
@@ -66,21 +69,21 @@
     align-items: center;
   }
   
-  .bar .btn {
+  .a{
     width: 6rem;
     cursor: pointer;
     background-color: #fff;
+    border: 1px solid black;
     padding: 10px 0;
     border-radius: 16px;
-    border: 1px solid #c2cdef;
+    border: 1px solid #171c2c;
     color: #120c35;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  
-  .btn i {
+  .a i {
     font-size: 20px;
     margin-bottom: 0.5rem;
   }

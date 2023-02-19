@@ -146,3 +146,10 @@ body {
     width: 100px;
     display: inline-block;
 }
+
+
+/*==================Edit Profile=============*/
+
+input {
+    right: 10px;
+}

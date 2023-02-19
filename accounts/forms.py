@@ -29,3 +29,13 @@ class UserCompanyInfoCreationForm(ModelForm):
         model = CompanyInfo
         fields = '__all__'
         exclude = ['user']
+
+
+class EditUserAccount(ModelForm):
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name','username', 'email', 'dob', 'gender']
+        widgets = {
+            'dob':  forms.DateInput(attrs={'type': 'date'})
+        }

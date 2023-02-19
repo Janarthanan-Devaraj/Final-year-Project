@@ -19,5 +19,5 @@ class CompanyInfo(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     company = models.CharField(max_length=100, blank=True)
     designation = models.CharField(max_length=100, blank=True)
-    salary = models.FloatField(blank=True)
+    salary = models.BigIntegerField(blank=True)
     

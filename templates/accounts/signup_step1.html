@@ -22,7 +22,7 @@
       </ul>
     {% endif %}
     </div>
-    <form method="POST" action="">
+    <form method="POST" enctype="multipart/form-data">
       {% csrf_token %}
 
       {% for field in form %}
@@ -35,7 +35,7 @@
       <input class="next-btn" type="submit" value="Next" />
     </form>
     </div>
-    <p class="text-center">Already have an account <a href="{% url 'login' %}">Login</a></p>
+    <p class="text-center">Already have an account <a href="{% url 'accounts:login' %}">Login</a></p>
   </div> 
 </div>
 {% endblock content %}

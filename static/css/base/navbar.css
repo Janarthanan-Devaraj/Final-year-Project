@@ -1,0 +1,21 @@
+.navbar{
+    width: 50px;
+    top: 30%;
+    height: 40%;
+    background: #ffff;
+    left: 5px;
+    position: absolute;
+}
+.center{
+    position: relative;
+    top: 35%;
+}
+
+i{
+    font-size: 20px;
+    color: blueviolet;
+}
+
+.center a {
+    margin-bottom: 10px;
+}

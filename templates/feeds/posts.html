@@ -1,0 +1,59 @@
+{% extends 'base/base.html' %}
+
+{% load static %}
+
+{% block title %}Feeds{% endblock title %}
+{% block links %}
+<link rel="stylesheet" href="{% static 'css/posts/posts.css' %}">
+{% endblock links %}
+
+{% block content %}
+{% include 'base/navbar.html' %}
+<section class="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 offset-lg-3">
+        <a class="add-post" href="{% url 'feeds:add-post' %}">Add Post</a>
+      </div>
+    </div>
+    <div class="row">
+
+      <div class="col-lg-6 offset-lg-3">
+        {% for post in posts %}
+        <div class="cardbox shadow-lg bg-white">
+
+          <div class="cardbox-heading">
+            <div class="media m-0">
+              <div class="d-flex mr-3">
+                <a href="accounts:profile"><img class="img-fluid rounded-circle" src="{{post.author.profile_pic.url}}" alt="User"></a>
+              </div>
+              <div class="media-body">
+                <p class="m-0">{{post.author.first_name}} <span> </span>{{post.author.last_name}}</p>
+                <small><span><i class="icon ion-md-pin"></i> {{post.author.username}}</span></small>
+                <small><span><i class="icon ion-md-time"></i> {{post.dateTime|timesince}} ago</span></small>
+              </div>
+            </div>
+          </div>
+
+          <div class="cardbox-item">
+            <img class="img-fluid" src="{{post.image.url}}" alt="Image">
+          </div>
+          <div class="cardbox-base">
+            <p class="card-text">{{post.content}}</p>
+          </div>
+          <div class="cardbox-comments">
+            <span class="comment-avatar float-left">
+              <a href=""><img class="rounded-circle"
+                  src="http://www.themashabrand.com/templates/bootsnipp/post/assets/img/users/6.jpg" alt="..."></a>
+            </span>
+            <div class="search">
+              <input placeholder="Write a comment" type="text">
+            </div><!--/. Search -->
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock content %}

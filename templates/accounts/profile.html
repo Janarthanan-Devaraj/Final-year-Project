@@ -13,13 +13,14 @@
 {% block title %}Profile{% endblock title %}
 
 {% block content %}
+{% include 'base/navbar.html' %}
 <div class="container bootstrap snippets bootdey">
 <div class="row">
   <div class="profile-nav col-md-3">
       <div class="panel">
           <div class="user-heading round">
               <a href="#">
-                  <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" alt="">
+                  <img src="{{user.profile_pic.url}}" alt="">
               </a>
               <h1>{{user.first_name}}<span> </span>{{user.last_name}}</h1>
               <p>{{user.username}}</p>
@@ -27,8 +28,8 @@
 
           <ul class="nav nav-pills nav-stacked">
               <li class="active"><a href="#"> <i class="fa fa-user"></i> Profile</a></li>
-              <li><a href="{% url 'edit-profile'%}"> <i class="fa fa-edit"></i> Edit profile</a></li>
-              <li><a href="{% url 'logout'%}"> <i class="fa-solid fa-right-from-bracket"></i></i>logout</a></li>
+              <li><a href="{% url 'accounts:edit-profile'%}"> <i class="fa fa-edit"></i> Edit profile</a></li>
+              <li><a href="{% url 'accounts:logout'%}"> <i class="fa-solid fa-right-from-bracket"></i></i>logout</a></li>
           </ul>
       </div>
   </div>

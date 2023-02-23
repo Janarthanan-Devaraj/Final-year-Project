@@ -13,6 +13,7 @@
 {% block title %}Edit-Profile{% endblock title %}
 
 {% block content %}
+{% include 'base/navbar.html' %}
 <div class="container bootstrap snippets bootdey">
     <div class="row">
         <div class="profile-nav col-md-3">
@@ -27,15 +28,15 @@
                 </div>
 
                 <ul class="nav nav-pills nav-stacked">
-                    <li class="active"><a href="{% url 'profile' request.user.username%}"> <i class="fa fa-user"></i>
+                    <li class="active"><a href="{% url 'accounts:profile' request.user.username%}"> <i class="fa fa-user"></i>
                             Profile</a></li>
                     <li><a href="#"> <i class="fa fa-edit"></i> Edit profile</a></li>
-                    <li><a href="{% url 'logout'%}"> <i class="fa-solid fa-right-from-bracket"></i></i>logout</a></li>
+                    <li><a href="{% url 'accounts:logout'%}"> <i class="fa-solid fa-right-from-bracket"></i></i>logout</a></li>
                 </ul>
             </div>
         </div>
         <div class="profile-info col-md-9">
-            <form method="POST" action="">
+            <form method="POST" action="" enctype="multipart/form-data">
                 <div class="panel">
                     <div class="bio-graph-heading">
                     </div>

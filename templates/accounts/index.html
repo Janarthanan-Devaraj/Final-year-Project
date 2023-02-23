@@ -9,13 +9,14 @@
 {% block title %}Index{% endblock title %}
 
 {% block content %}
+{% include 'base/navbar.html' %}
 <div class="card">
     <div class="container">
-      <img src="https://e7.pngegg.com/pngimages/799/987/png-clipart-computer-icons-avatar-icon-design-avatar-heroes-computer-wallpaper-thumbnail.png" alt="profile-img">
+      <img src="user.profile_pic.url" alt="profile-img">
       <h2>{{user.username}}</h2>
       <small>{{user.first_name}}</small>
       <div class="bar">
-        <a class="btn" href="{% url 'profile' request.user.username %}">
+        <a class="btn" href="{% url 'accounts:profile' request.user.username %}">
           <i class="fas fa-pen"></i>
           <p>View profile</p>
         </a>

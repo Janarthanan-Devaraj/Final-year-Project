@@ -8,7 +8,7 @@ class UserAccountCreationForm(UserCreationForm):
         
     class Meta:
         model = User
-        fields = ['first_name', 'last_name','username', 'email', 'dob', 'gender', 'password1', 'password2']
+        fields = ['profile_pic','first_name', 'last_name','username', 'email', 'dob', 'gender', 'password1', 'password2']
         widgets = {
             'dob':  forms.DateInput(attrs={'type': 'date'})
         }
@@ -35,7 +35,7 @@ class EditUserAccount(ModelForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name','username', 'email', 'dob', 'gender']
+        fields = ['first_name', 'last_name','username', 'email', 'dob', 'gender', 'profile_pic']
         widgets = {
             'dob':  forms.DateInput(attrs={'type': 'date'})
         }
